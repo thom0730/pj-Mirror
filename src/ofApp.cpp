@@ -33,9 +33,13 @@ void ofApp::setup(){
     
     //FBOの準備
    // fbo[0]->allocate(camWidth, camHeight, GL_RGB);
-    DrawFlg = false;//フラグの初期化
-    RecFlg = false;//フラグの初期化
-    counter = 0;
+    for(int i = 0;i<camNUM;i++){
+        DrawFlg[i] = false;//フラグの初期化
+        RecFlg[i] = false;//フラグの初期化
+        counter[i] = 0;
+    }
+
+    
     
     
     
@@ -51,11 +55,15 @@ void ofApp::update(){
         vidGrabber[i].update();
     }
     //FBOへの格納
-    if(RecFlg){
-        FboUpdate();
-        cout << "FBOカクノウ" << endl;
+    for(int i = 0 ; i < camNUM;i++){
+        if(RecFlg[i]){
+            FboUpdate(i);
+            cout << "FBOカクノウ" << endl;
+            
+        }
         
     }
+    
     
 
 }
@@ -72,16 +80,13 @@ void ofApp::draw(){
     }
     
     //FBOの描画
-    if(DrawFlg){
-        if(counter < fbo.size()){
-            fbo[counter]->draw(2*camWidth,camHeight);
-            cout << "FBO描画" << endl;
+    for(int i = 0 ; i < camNUM;i++){
+        if(DrawFlg[i]){
+            FboDraw(i);
+            
         }
-        
-        counter++;
-        
-        
     }
+    
   
     //ムービーのビットマップデータを解析し、配列に格納
     
@@ -108,40 +113,70 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    //「s」キーを押すと、ビデオ取り込みの設定画面を表示
-    if (key == 's' || key == 'S'){
-       //  check.listDevices();
-        
-      /*  for(int i = 0 ; i < camNUM; i++){
-            vidGrabber[i].videoSettings();
-        }*/
+
+    //カメラ1
+    if (key == 'q' || key == 'Q'){
+        RecFlg[0] = true; //録音の開始
     }
-    
-    if (key == 'a' || key == 'A'){
-        RecFlg = true; //録音の開始
-        
+    if(key == '1'){
+        DrawFlg[0] = true ; //描画の開始
     }
-    
-    if(key == 'b' || key == 'B'){
-        DrawFlg = true ; //描画の開始
-        
-        
+    //カメラ2
+    if (key == 'w' || key == 'W'){
+        RecFlg[1] = true; //録音の開始
     }
-    
+    if(key == '2'){
+        DrawFlg[1] = true ; //描画の開始
+    }
+    //カメラ3
+    if (key == 'e' || key == 'E'){
+        RecFlg[2] = true; //録音の開始
+    }
+    if(key == '3'){
+        DrawFlg[2] = true ; //描画の開始
+    }
+    //カメラ4
+    if (key == 'r' || key == 'R'){
+        RecFlg[3] = true; //録音の開始
+    }
+    if(key == '4'){
+        DrawFlg[3] = true ; //描画の開始
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-    if (key == 'a' || key == 'A'){
-        RecFlg = false;//録画の停止
-        
+    
+    //カメラ1
+    if (key == 'q' || key == 'Q'){
+        RecFlg[0] = false; //録音の停止
     }
-    if(key == 'b' || key == 'B'){
-        DrawFlg = false ;//描画の停止
-        counter = 0;
-        fbo.clear();
+    if(key == '1'){
+        stop(0);
     }
+    //カメラ2
+    if (key == 'w' || key == 'W'){
+        RecFlg[1] = false; //録音の停止
+    }
+    if(key == '2'){
+        stop(1);
+    }
+    //カメラ3
+    if (key == 'e' || key == 'E'){
+        RecFlg[2] = false; //録音の停止
+    }
+    if(key == '3'){
+        stop(2);
+    }
+    //カメラ4
+    if (key == 'r' || key == 'R'){
+        RecFlg[3] = false; //録音の停止
+    }
+    if(key == '4'){
+        stop(3);
+    }
+
     
 
 }
@@ -191,15 +226,38 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
 //--------------------------------------------------------------
-void ofApp::FboUpdate(){
-    if (vidGrabber[0].isFrameNew()){
-        fbo.push_back(new ofFbo);
-        int num = fbo.size()-1;
-        fbo[num]->allocate(camWidth, camHeight, GL_RGB);
-        fbo[num]->begin();
-        vidGrabber[0].draw(0, 0, fbo[num]->getWidth(), fbo[num]->getHeight());
-        fbo[num]->end();
+void ofApp::FboUpdate(int camera){
+    if (vidGrabber[camera].isFrameNew()){
+        fbo[camera].push_back(new ofFbo);
+        int num = fbo[camera].size()-1;
+        fbo[camera][num]->allocate(camWidth, camHeight, GL_RGB);
+        fbo[camera][num]->begin();
+        vidGrabber[camera].draw(0, 0, fbo[camera][num]->getWidth(), fbo[camera][num]->getHeight());
+        fbo[camera][num]->end();
     }
     
+    
+}
+//--------------------------------------------------------------
+void ofApp::stop(int number){
+    DrawFlg[number] = false ;
+    counter[number] = 0;
+    fbo[number].clear();
+}
+//--------------------------------------------------------------
+void ofApp::FboDraw(int camera){
+    int position = camera + 1;//生成位置の指定(最終的には必要ない処理)
+    if(counter[camera] < fbo[camera].size()){
+        if(position < 3){
+            fbo[camera][counter[camera]]->draw(position*camWidth,camHeight);
+        }else{
+            fbo[camera][counter[camera]]->draw((position-3)*camWidth,2*camHeight);
+        }
+        cout << "FBO描画" << endl;
+    }
+    
+    counter[camera]++;
+    
+
     
 }
