@@ -3,6 +3,7 @@
 
 #include "ofMain.h"
 #include "ofxPostGlitch.h"
+#include "Glitch.hpp"
 
 //繧ｫ繝｡繝ｩ縺ｮ蜿ｰ謨ｰ
 #define camNUM 4
@@ -42,7 +43,8 @@ class ofApp : public ofBaseApp{
     bool DrawFlg[camNUM];
     int counter[camNUM];
     
-    ofxPostGlitch myGlitch[camNUM];
+    Glitch EffectGlitch;//グリッチエフェクトのインスタンスをカメラの個数分生成
     
+    vector<ofxPostGlitch> myGlitch[camNUM];
     
 };
