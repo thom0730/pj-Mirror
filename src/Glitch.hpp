@@ -17,7 +17,7 @@ class Glitch {
     
 public:
     //グリッジ用
-    vector<ofxPostGlitch> myGlitch;
+    ofxPostGlitch myGlitch;
     void EffectStart(int key); //エフェクトの開始
     void EffectStop(int key); //エフェクトの停止
     

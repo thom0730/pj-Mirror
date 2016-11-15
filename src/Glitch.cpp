@@ -13,88 +13,62 @@ void Glitch::EffectStart(int key)
 {
     //グリッジ
     if (key == 'q') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CONVERGENCE	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, true);
+        cout << "デバッグ" << endl;
     }
     if (key == 'w') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_GLOW	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_GLOW	, true);
     }
     if (key == 'e') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SHAKER	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SHAKER	, true);
+    
     }
     if (key == 'r') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CUTSLIDER	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER	, true);
+        
     }
     if (key == 't') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_TWIST	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_TWIST	, true);
     }
     if (key == 'y') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_OUTLINE	, true);
-        }    }
+        myGlitch.setFx(OFXPOSTGLITCH_OUTLINE	, true);
+    }
     if (key == 'u') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_NOISE	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_NOISE	, true);
     }
     if (key == 'i') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SLITSCAN	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN	, true);
+        
     }
     if (key == 'o') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SWELL	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SWELL	, true);
+    
     }
     if (key == 'p') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_INVERT	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_INVERT	, true);
+        
     }
     if (key == 'a') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST	, true);
+        
     }
     if (key == 's') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_BLUERAISE	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE	, true);
     }
     if (key == 'd') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_REDRAISE	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE	, true);
     }
     if (key == 'f') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_GREENRAISE	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE	, true);
     }
     if (key == 'g') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, true);
     }
     if (key == 'h') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_REDINVERT	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT	, true);
     }
     if (key == 'j') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_GREENINVERT	, true);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT	, true);
     }
 }
 
@@ -103,86 +77,60 @@ void Glitch::EffectStop(int key)
 {
     //グリッジ
     if (key == 'q') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CONVERGENCE	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE	, false);
     }
     if (key == 'w') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_GLOW	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_GLOW	, false);
     }
     if (key == 'e') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SHAKER	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SHAKER	, false);
+        
     }
     if (key == 'r') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CUTSLIDER	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER	, false);
+        
     }
     if (key == 't') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_TWIST	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_TWIST	, false);
     }
     if (key == 'y') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_OUTLINE	, false);
-        }    }
+        myGlitch.setFx(OFXPOSTGLITCH_OUTLINE	, false);
+    }
     if (key == 'u') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_NOISE	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_NOISE	, false);
     }
     if (key == 'i') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SLITSCAN	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SLITSCAN	, false);
+        
     }
     if (key == 'o') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_SWELL	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_SWELL	, false);
+        
     }
     if (key == 'p') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_INVERT	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_INVERT	, false);
+        
     }
     if (key == 'a') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST	, false);
+        
     }
     if (key == 's') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_BLUERAISE	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE	, false);
     }
     if (key == 'd') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_REDRAISE	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE	, false);
     }
     if (key == 'f') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_GREENRAISE	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE	, false);
     }
     if (key == 'g') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT	, false);
     }
     if (key == 'h') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_REDINVERT	, false);
-        }
+        myGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT	, false);
     }
     if (key == 'j') {
-        for(int i = 0;i<myGlitch.size();i++){
-            myGlitch[i].setFx(OFXPOSTGLITCH_CR_GREENINVERT	, false);
-        }
-    }}
+        myGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT	, false);
+    }
+}
