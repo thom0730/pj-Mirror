@@ -1,3 +1,4 @@
+ofxMSAInteractiveObject
 ofxOpenCv
 ofxPostGlitch
 ofxQuadWarp

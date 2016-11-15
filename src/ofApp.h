@@ -2,11 +2,12 @@
 
 
 #include "ofMain.h"
+#include "ofxQuadWarp.h"
 #include "ofxPostGlitch.h"
 #include "Glitch.hpp"
 
 //繧ｫ繝｡繝ｩ縺ｮ蜿ｰ謨ｰ
-#define camNUM 4
+#define camNUM 3
 
 
 class ofApp : public ofBaseApp{
@@ -43,8 +44,8 @@ class ofApp : public ofBaseApp{
     bool DrawFlg[camNUM];
     int counter[camNUM];
     
-    Glitch EffectGlitch;//グリッチエフェクトのインスタンスをカメラの個数分生成
-    
+    //グリッチのインスタンス
     vector<ofxPostGlitch> myGlitch[camNUM];
+    
     
 };
